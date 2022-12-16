@@ -2,7 +2,8 @@
 <p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
 <h1>HW</h1>
 <h2>w15-2</h2>
-<p></p><h2>W15(H2)</h2>
+<p></p>
+<h2>W15(H2)</h2>
 <ul style="list-style-type: circle;">
 <li>為何學習計算機程式需要建立個人倉儲?</li>
 <li>A:能記錄每次更改內容</li>
@@ -21,70 +22,8 @@
 <li>A:表示在網站中能呈現2D的圖形</li>
 <li>變數, 字串, 整數, 浮點數, 數列, Tuple, Dictionary, 函式, 重複迴圈, class, 物件導向, 資料庫, 這些名詞對您而言代表甚麼?</li>
 <li>A:能提供我的程式考慮到更多東西，使我在運用時更加精確，更加接近我們理想中所要呈現的樣子</li>
-</ul><h2>W6-2</h2>
-<p>擷取個人靜態網頁</p>
-<p><strong>在動態的網址上加上變數(?src=)再放上(抽點網站<span>的</span>python語言)所轉換的連結就能夠在動態顯示W6-1抽點網站</strong></p>
-<p><strong>後面再加上(&amp;src2)再放上(<span>擷取個人靜態網頁的</span>python語言)所轉換的連結就能夠在動態顯示</strong></p>
-<p><strong>連結在此</strong></p>
-<p><strong>(https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp2022_w6b_gen_pages_link.py)</strong></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-
-brython_div1 = document["brython_div1"]
-"""
-brython_div1 &lt;= html.BUTTON("hello")
-brython_div1 &lt;= html.BR()
-brython_div1 &lt;= html.A("google", href="https://google.com")
-"""
-
-url = "https://mde.tw/studlist/2022fall/1b.txt"
-data = open(url).read().split("\n")
-mdecp2022 = "https://mdecp2022.github.io/site-"
-data = data[1:-1]
-for i in data:
-    stud = i.split("\t")
-    stud_num = stud[0]
-    github_acc = stud[1]
-    #print(stud_num, github_acc)
-    if github_acc == "":
-        github_acc = stud_num
-    site = mdecp2022 + github_acc
-    link = html.A(stud_num, href=site)
-    brython_div1 &lt;= link
-    brython_div1 &lt;= html.BR()</pre>
-<p><br/><br/></p>
-<p></p><h2>w6-1</h2>
-<p><br/>抽點程式<br/>   一次抽五位同學</p>
-<h6><strong>在動態的網址上加上變數(?src=)再放上python所轉換的連結就能夠在動態顯示抽點網站了</strong></h6>
-<p><strong>連結在此</strong></p>
-<p><strong>(<a href="https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp1b_2022_random_draw.py)">https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp1b_2022_random_draw.py)</a></strong></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
-'''多行註解則可以透過三個單引號前後標註字串或文字段落內容, 
-也可以使用三個雙引號作為多行註解的標註
-'''
-# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
-import random
-cp1b = "0761"
-# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
-url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1b + "&amp;column=True"
-# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
-# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
-# url 所屬的網站, 乃 69 中的一台虛擬主機 8/10ff-0-1-2, 並利用 Get 從教務主機取回課程註冊成員學號
-# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
-# 所對應到 data 的資料型別將會是數列
-data = open(url).read().split("\n")
-# 經過檢查 data 數列, 發現最後一個 element 為空字串, 因此利用 [:-1] 去掉數列的最後一個元素, -1 代表數列最後一個元素的索引
-#print(data[:-1])
-# 設定一個變數, 與修課成員學號數列對應
-stud = data[:-1]
-# 使用 random 模組中的 shuffle() 函式, 以隨機的方式排列 stud 數列內容
-random.shuffle(stud)
-# 設定 num 與 5 對應, 或將 5 整數值存入 num 變數所對應的記憶體位址
-num = 5
-# 利用 for 重複迴圈與 range() 變數, 列印出 (利用 print() 函式) 已經隨機排列次序的 stud 數列的最前面 num 個學號值
-for i in range(num):
-    print(stud[i])
-</pre>
-<pre><br/><br/></pre><h2>w13</h2>
+</ul>
+<h2>w13</h2>
 <p><a href="https://mdecp2022.github.io/site-41123122/content/Brython,.html?src=https://gist.githubusercontent.com/41123122/c95f0575550e926abe87ca3d09ab62e4/raw/903feb9957027ea8ee7bd2992d072bc1118f2a1f/w13_temp">溫度轉換器</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 f = c*9/5+32
@@ -103,7 +42,8 @@ c = input("請輸入溫度")
 #print(type(c))
 c = float(c)
 print("你輸入的攝氏溫度"+str(c),"等於華氏溫度"+str(c, c*9/5+32))</pre>
-<p></p><h2>w12</h2>
+<p></p>
+<h2>w12</h2>
 <p><a href="https://mdecp2022.github.io/site-41123122/content/Brython,.html?src=https://gist.githubusercontent.com/41123122/58617739387714ca52ce2379ba4509ec/raw/a8df3ba9770bcc89a62fd6344639c2e315883625/w12_hw-1.py">hw 第一個作業</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
 user_input_temp = input("請輸入攝氏溫度值:")
@@ -165,7 +105,73 @@ def get_input(env):
 document["btn1"].bind('click', get_input)
 </script>
 </p>
-<p></p><h1>cp2022</h1>
+<p></p>
+<h2>W6-2</h2>
+<p>擷取個人靜態網頁</p>
+<p><strong>在動態的網址上加上變數(?src=)再放上(抽點網站<span>的</span>python語言)所轉換的連結就能夠在動態顯示W6-1抽點網站</strong></p>
+<p><strong>後面再加上(&amp;src2)再放上(<span>擷取個人靜態網頁的</span>python語言)所轉換的連結就能夠在動態顯示</strong></p>
+<p><strong>連結在此</strong></p>
+<p><strong>(https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp2022_w6b_gen_pages_link.py)</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+
+brython_div1 = document["brython_div1"]
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com")
+"""
+
+url = "https://mde.tw/studlist/2022fall/1b.txt"
+data = open(url).read().split("\n")
+mdecp2022 = "https://mdecp2022.github.io/site-"
+data = data[1:-1]
+for i in data:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    if github_acc == "":
+        github_acc = stud_num
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()</pre>
+<p><br/><br/></p>
+<p></p>
+<h2>w6-1</h2>
+<p><br/>抽點程式<br/>   一次抽五位同學</p>
+<h6><strong>在動態的網址上加上變數(?src=)再放上python所轉換的連結就能夠在動態顯示抽點網站了</strong></h6>
+<p><strong>連結在此</strong></p>
+<p><strong>(<a href="https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp1b_2022_random_draw.py)">https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp1b_2022_random_draw.py)</a></strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
+'''多行註解則可以透過三個單引號前後標註字串或文字段落內容, 
+也可以使用三個雙引號作為多行註解的標註
+'''
+# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
+import random
+cp1b = "0761"
+# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
+url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1b + "&amp;column=True"
+# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
+# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
+# url 所屬的網站, 乃 69 中的一台虛擬主機 8/10ff-0-1-2, 並利用 Get 從教務主機取回課程註冊成員學號
+# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
+# 所對應到 data 的資料型別將會是數列
+data = open(url).read().split("\n")
+# 經過檢查 data 數列, 發現最後一個 element 為空字串, 因此利用 [:-1] 去掉數列的最後一個元素, -1 代表數列最後一個元素的索引
+#print(data[:-1])
+# 設定一個變數, 與修課成員學號數列對應
+stud = data[:-1]
+# 使用 random 模組中的 shuffle() 函式, 以隨機的方式排列 stud 數列內容
+random.shuffle(stud)
+# 設定 num 與 5 對應, 或將 5 整數值存入 num 變數所對應的記憶體位址
+num = 5
+# 利用 for 重複迴圈與 range() 變數, 列印出 (利用 print() 函式) 已經隨機排列次序的 stud 數列的最前面 num 個學號值
+for i in range(num):
+    print(stud[i])
+</pre>
+<pre><br/><br/></pre>
+<h1>cp2022</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
@@ -450,7 +456,8 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
 <!-- editor2 結束 --><hr/>
-<script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script><h1>Brython,</h1>
+<script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
+<h1>Brython,</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
