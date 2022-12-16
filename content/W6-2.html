@@ -2,6 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -140,9 +141,38 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='HW.html'>Next</a> >> HW<br /><h1>About</h1>
-<p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
-<br /> <a href='HW.html'>Next</a> >> HW</div>
+    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w6-1.html'>Next</a> >> w6-1<br /><h1>W6-2</h1>
+<p>擷取個人靜態網頁</p>
+<p><strong>在動態的網址上加上變數(?src=)再放上(抽點網站<span>的</span>python語言)所轉換的連結就能夠在動態顯示W6-1抽點網站</strong></p>
+<p><strong>後面再加上(&amp;src2)再放上(<span>擷取個人靜態網頁的</span>python語言)所轉換的連結就能夠在動態顯示</strong></p>
+<p><strong>連結在此</strong></p>
+<p><strong>(https://gist.githubusercontent.com/mdecycu/2c6323eff49b496d1bafd210f3ec9707/raw/035d6948a233beceba7a7974eef0a0a4ef9c17e9/cp2022_w6b_gen_pages_link.py)</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+
+brython_div1 = document["brython_div1"]
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com")
+"""
+
+url = "https://mde.tw/studlist/2022fall/1b.txt"
+data = open(url).read().split("\n")
+mdecp2022 = "https://mdecp2022.github.io/site-"
+data = data[1:-1]
+for i in data:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    if github_acc == "":
+        github_acc = stud_num
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()</pre>
+<p><br/><br/></p>
+<p></p><br />HW << <a href='HW.html'>Previous</a> <a href='w6-1.html'>Next</a> >> w6-1</div>
         
     <!-- footer -->
       <div class="container">
