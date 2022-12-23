@@ -141,27 +141,11 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W15(H2) << <a href='W15(H2).html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w13</h1>
-<p><a href="https://mdecp2022.github.io/site-41123122/content/Brython,.html?src=https://gist.githubusercontent.com/41123122/c95f0575550e926abe87ca3d09ab62e4/raw/903feb9957027ea8ee7bd2992d072bc1118f2a1f/w13_temp">溫度轉換器</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
-f = c*9/5+32
-c = (f-32)*5/9
-'''
-c = input("請輸入溫度")
-#print(type(c))
-c = float(c)
-print(c, c*9/5+32)</pre>
-<p><a href="https://mdecp2022.github.io/site-41123122/content/Brython,.html?src=https://gist.githubusercontent.com/41123122/c95f0575550e926abe87ca3d09ab62e4/raw/c31bbb0034cf0b8fa7e428cd65d500061a28dd2c/w13_temp-2">溫度轉換器修改版</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
-f = c*9/5+32
-c = (f-32)*5/9
-'''
-c = input("請輸入溫度")
-#print(type(c))
-c = float(c)
-print("你輸入的攝氏溫度"+str(c),"等於華氏溫度"+str(c, c*9/5+32))</pre>
-<p></p>
-<br />W15(H2) << <a href='W15(H2).html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+    <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w5.html'>Next</a> >> w5<br /><h1>w15-3(更新版)</h1>
+<p>作業</p>
+<p>將綠色方塊從繞圈變成從 (1, 1) 出發, 向右行走至 (8, 1) 之後, 轉向下行走, 至底部之後向右行走至右方邊界 (15, 15) 之後, 轉而向上行走至 (15, 8) 之後向左走至左邊界後向上行走至 (1, 1) 後, 依照上述路徑重複執行.</p>
+<p>更改此處nowx為x方向，nowy為y軸</p>
+<p># 繞8字走<br/>def walk():<br/>    global stepx, stepy<br/>    if nowx == 1 and nowy == 1:<br/>        stepx = 1<br/>        stepy = 0<br/>    elif nowx == 8 and nowy == 1:<br/>        stepx = 0<br/>        stepy = 1<br/>    elif nowx == 8 and nowy == 15:<br/>        stepx = 1<br/>        stepy = 0<br/>    <br/>    elif nowx ==15 and nowy ==15:<br/>        stepx = 0<br/>        stepy = -1<br/>    elif nowx ==15 and nowy ==8:<br/>        stepx = -1<br/>        stepy = 0<br/>    elif nowx ==1 and nowy ==8:<br/>        stepx = 0<br/>        stepy = -1</p><br />HW << <a href='HW.html'>Previous</a> <a href='w5.html'>Next</a> >> w5</div>
         
     <!-- footer -->
       <div class="container">
