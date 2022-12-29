@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w15-3(更新版) << <a href='w15-3(更新版).html'>Previous</a> <a href='w5.html'>Next</a> >> w5<br /><h1>rect_walk</h1>
+    <div id="tipue_search_content">w15-2 << <a href='w15-2.html'>Previous</a> <a href='w15-3(更新版).html'>Next</a> >> w15-3(更新版)<br /><h1>circle</h1>
 <!-- 納入 Brython 環境 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -260,29 +260,25 @@ def wipe():
 def draw():
     draw_rect(nowx, nowy, 30, 30, color="lime")
 
-# 繞8字走
+# 繞著外圍行走
 def walk():
     global stepx, stepy
-    if nowx == 1 and nowy == 1:
-        stepx = 1
-        stepy = 0
-    elif nowx == 8 and nowy == 1:
+    # 向下
+    if nowy < hnum and nowx == 1:
         stepx = 0
         stepy = 1
-    elif nowx == 8 and nowy == 15:
+    # 向右
+    elif nowx < wnum and nowy == hnum:
         stepx = 1
         stepy = 0
-     
-    elif nowx ==15 and nowy ==15:
+    # 向上
+    elif nowy == hnum and nowx == wnum:
         stepx = 0
         stepy = -1
-    elif nowx ==15 and nowy ==8:
+    # 向左
+    elif nowx == wnum and nowy == 1:
         stepx = -1
         stepy = 0
-    elif nowx ==1 and nowy ==8:
-        stepx = 0
-        stepy = -1
-
         
 # 每隔短暫時間即呼叫執行一次的函式
 def game():
@@ -344,8 +340,7 @@ grid(origx, origy, w, h, wnum, hnum, pixel=1, color="black")
 
 doc["power"].bind("click", launchAnimation)
 #browser.timer.set_interval(game, 100)
-</script>
-<br />w15-3(更新版) << <a href='w15-3(更新版).html'>Previous</a> <a href='w5.html'>Next</a> >> w5</div>
+</script><br />w15-2 << <a href='w15-2.html'>Previous</a> <a href='w15-3(更新版).html'>Next</a> >> w15-3(更新版)</div>
         
     <!-- footer -->
       <div class="container">
