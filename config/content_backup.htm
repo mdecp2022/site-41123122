@@ -1,10 +1,18 @@
 <h1>About</h1>
 <p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
 <h1>HW</h1>
-<h2>w17-畫線</h2>
+<h3>w17-方形</h3>
+<p>運用座標畫線的方式，延伸使用方座標畫圖方式畫方型</p>
+<p>畫圖想法為畫出四條壤他圍成方形</p>
+<p><span>draw_line(0,0,0,600 ) </span></p>
+<p><span>draw_line(600,0,600,600 )</span></p>
+<p><span>draw_line(0,0,600,0 ) </span></p>
+<p><span>draw_line(0,600,600,600 )</span></p><h3>square</h3><h2>w17-畫線</h2>
 <p>draw_line(0,0,600,600 )<br/><br/></p>
 <p>畫線的話我們需要將座標改為(0,0)到(600,600)</p>
-<p>這樣我們就能得到從左上到右下的線條</p><h3>line</h3>
+<p>這樣我們就能得到從左上到右下的線條</p>
+<p><a href="https://mdecp2022.github.io/site-41123122/content/cp2022.html?src=https://gist.githubusercontent.com/41123122/b81be063ab80746f613a389b70c08f25/raw/3cbf621f0f0bc766224f6550914d53d1a2ae12e0/w17">畫線連結</a></p>
+<p></p><h3>line</h3>
 <!-- 納入 Brython 環境 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -206,7 +214,7 @@ draw_line(0,0,600,600 )
 
 
 #ctx.beginPath();
-#ctx.arc(100, 75, 50, 0, 2 * math.pi);
+#ctx.arc(100, 75, 50, 0,  2*math.pi);
 #ctx.stroke();
 
 doc["power"].bind("click", launchAnimation)
