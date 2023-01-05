@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='w15-2.html'>w15-2</a><ul class='dropdown'><li><a href='circle.html'>circle</a></li></ul><li class='has-children'><a href='w15-3(更新版).html'>w15-3(更新版)</a><ul class='dropdown'><li><a href='rect_walk.html'>rect_walk</a></li></ul><li><a href='w5.html'>w5</a><li><a href='W15(H2).html'>W15(H2)</a><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li><a href='w12-1.html'>w12-1</a><li><a href='W6-2.html'>W6-2</a><li><a href='w6-1.html'>w6-1</a></li></ul><li><a href='cp2022.html'>cp2022</a><li><a href='Brython,.html'>Brython,</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='w17-畫線.html'>w17-畫線</a><ul class='dropdown'><li><a href='line.html'>line</a></li></ul><li class='has-children'><a href='w15-2.html'>w15-2</a><ul class='dropdown'><li><a href='circle.html'>circle</a></li></ul><li class='has-children'><a href='w15-3(更新版).html'>w15-3(更新版)</a><ul class='dropdown'><li><a href='rect_walk.html'>rect_walk</a></li></ul><li><a href='w5.html'>w5</a><li><a href='W15(H2).html'>W15(H2)</a><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li><a href='w12-1.html'>w12-1</a><li><a href='W6-2.html'>W6-2</a><li><a href='w6-1.html'>w6-1</a></li></ul><li><a href='cp2022.html'>cp2022</a><li><a href='Brython,.html'>Brython,</a></li>
                       </ul>
                 </nav>
               </div>
@@ -165,6 +165,7 @@ from browser import html
 import browser.timer
 # 導入亂數模組
 from random import random, randint
+import math
 
 # 利用 html 建立一個 CANVAS 標註物件, 與變數 canvas 對應
 canvas = html.CANVAS(width = 600, height = 600)
@@ -337,6 +338,14 @@ origx = 1
 origy = 1
 # 利用 grid 函式畫出格線
 grid(origx, origy, w, h, wnum, hnum, pixel=1, color="black")
+#draw_line(0,0,0,600 )
+#draw_line(600,0,600,600 )
+#draw_line(0,0,600,0 )
+#draw_line(0,600,600,600 )
+
+#ctx.beginPath();
+#ctx.arc(100, 75, 50, 0, 2 * math.pi);
+#ctx.stroke();
 
 doc["power"].bind("click", launchAnimation)
 #browser.timer.set_interval(game, 100)
